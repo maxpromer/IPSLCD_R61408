@@ -98,6 +98,20 @@ void LCD_SetPos(uint16_t xs, uint16_t xe, uint16_t ys, uint16_t ye) {
   write_command(0x002c);
 }
 
+void LCD_SetWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
+  write_command(0x002A);  
+  Write_Data_int(x1>>8);      
+  Write_Data_int(x1&0x00ff);
+  Write_Data_int(x2>>8);      
+  Write_Data_int(x2&0x00ff);
+  
+  write_command(0x002b);  
+  Write_Data_int(y1>>8);      
+  Write_Data_int(y1&0x00ff);
+  Write_Data_int(y2>>8);      
+  Write_Data_int(y2&0x00ff);
+  write_command(0x002c); 
+}
 
 void LCD_Initial() {
   // Config I/O

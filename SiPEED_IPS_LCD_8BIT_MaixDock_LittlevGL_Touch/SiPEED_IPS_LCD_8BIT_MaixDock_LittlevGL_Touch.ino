@@ -94,14 +94,24 @@ static void lv_tick_handler(void) {
   lv_tick_inc(LVGL_TICK_PERIOD);
 }
 
-bool touch_pointer(lv_indev_drv_t * drv, lv_indev_data_t*data) {
-  data->state = touch_read((uint16_t*)(&data->point.x), (uint16_t*)(&data->point.y)) > 0 ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+static bool touch_pointer(lv_indev_drv_t * drv, lv_indev_data_t*data) {
+  uint16_t x, y;
+  data->state = touch_read(&x, &y) > 0 ? LV_INDEV_STATE_PR : LV_INDEV_STATE_REL;
+  data->point.x = x;
+  data->point.y = y;
+  /*
+  touch_read(&x, &y);
+  Serial.println("Read");
+  data->state = LV_INDEV_STATE_REL;
+  */
   return false;
 }
 
 void setup() {
   Serial.begin(115200);
   Serial.println("Start !");
+
+  delay(100);
   
   // LCD
   LCD_Initial();

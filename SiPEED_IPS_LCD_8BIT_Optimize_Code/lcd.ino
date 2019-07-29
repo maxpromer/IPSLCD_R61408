@@ -344,5 +344,5 @@ void LCD_Initial() {
   write_command(0x29); // set_display_on: 29h
   Write_Data_int(0x00);
   write_command(0x36); // set_address_mode: 36h
-  Write_Data_int(0x68);
+  Write_Data_int(0x60);
 }

@@ -9,7 +9,8 @@ void write_command(uint8_t c) {
   SET_LCD_DATA(c);
 
   // Write to LCD
-  SET_LCD_WRITE();
+  // SET_LCD_WRITE();
+  SET_LCD_WRITE_LOW_SPEED();
 
   // SET_LCD_CS(1);
 }
@@ -24,7 +25,8 @@ void Write_Data_int(uint16_t d) {
   SET_LCD_DATA(d);
 
   // Write to LCD
-  SET_LCD_WRITE();
+  // SET_LCD_WRITE();
+  SET_LCD_WRITE_LOW_SPEED();
 
   // SET_LCD_CS(1);
 }
@@ -139,9 +141,9 @@ void LCD_Initial() {
   
 #ifdef LCD_RESET
   SET_LCD_RESET();
-  delay(1);
 #endif
-
+  delay(1);
+  
   // Write commend
   write_command(0x11); // exit_sleep_mode
   Write_Data_int(0x00);

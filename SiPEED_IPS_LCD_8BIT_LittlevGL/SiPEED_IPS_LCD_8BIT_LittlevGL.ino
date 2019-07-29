@@ -51,6 +51,11 @@
 #define SET_LCD_WRITE() { SET_LCD_WR_NON_ACTIVE(); \
                           SET_LCD_WR_ACTIVE(); }
 
+#define SET_LCD_WRITE_LOW_SPEED() { delayMicroseconds(100); \
+                                    SET_LCD_WR_NON_ACTIVE(); \
+                                    delayMicroseconds(100); \
+                                    SET_LCD_WR_ACTIVE(); }
+
 // Config LCD
 #define LCD_WIDTH  800
 #define LCD_HEIGHT 480

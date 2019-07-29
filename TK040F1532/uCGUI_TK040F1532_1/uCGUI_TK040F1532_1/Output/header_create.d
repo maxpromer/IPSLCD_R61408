@@ -1,0 +1,11 @@
+.\output\header_create.o: Source\uCGUI\Widget\HEADER_Create.c
+.\output\header_create.o: Source\uCGUI\Widget\HEADER.h
+.\output\header_create.o: .\Source\uCGUI\Core\GUI.h
+.\output\header_create.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\header_create.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\header_create.o: .\Source\uCGUI\Core\GUIType.h
+.\output\header_create.o: .\Source\uCGUI\Core\LCD.h
+.\output\header_create.o: .\Source\uCGUI\Core\GUIVersion.h
+.\output\header_create.o: .\Source\uCGUI\WM\WM.h
+.\output\header_create.o: .\Source\uCGUI\WM\WM_GUI.h
+.\output\header_create.o: Source\uCGUI\Widget\DIALOG_Intern.h

@@ -1,0 +1,16 @@
+.\output\guiaaarc.o: Source\uCGUI\AntiAlias\GUIAAArc.c
+.\output\guiaaarc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\guiaaarc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\guiaaarc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\output\guiaaarc.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\GUI_Protected.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\GUI.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\guiaaarc.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\GUIType.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\LCD.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\GUIVersion.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\LCD_Protected.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\GUIDebug.h
+.\output\guiaaarc.o: .\Source\uCGUI\Core\GUI_X.h
+.\output\guiaaarc.o: .\Source\uCGUI\WM\WM_GUI.h

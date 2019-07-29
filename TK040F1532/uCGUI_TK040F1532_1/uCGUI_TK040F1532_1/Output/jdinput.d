@@ -1,0 +1,17 @@
+.\output\jdinput.o: Source\uCGUI\JPEG\jdinput.c
+.\output\jdinput.o: Source\uCGUI\JPEG\jinclude.h
+.\output\jdinput.o: Source\uCGUI\JPEG\jconfig.h
+.\output\jdinput.o: .\Source\uCGUI\Core\GUI.h
+.\output\jdinput.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\jdinput.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\jdinput.o: .\Source\uCGUI\Core\GUIType.h
+.\output\jdinput.o: .\Source\uCGUI\Core\LCD.h
+.\output\jdinput.o: .\Source\uCGUI\Core\GUIVersion.h
+.\output\jdinput.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\output\jdinput.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\jdinput.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\jdinput.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\output\jdinput.o: Source\uCGUI\JPEG\jpeglib.h
+.\output\jdinput.o: Source\uCGUI\JPEG\jmorecfg.h
+.\output\jdinput.o: Source\uCGUI\JPEG\jpegint.h
+.\output\jdinput.o: Source\uCGUI\JPEG\jerror.h

@@ -1,0 +1,17 @@
+.\output\jdsample.o: Source\uCGUI\JPEG\jdsample.c
+.\output\jdsample.o: Source\uCGUI\JPEG\jinclude.h
+.\output\jdsample.o: Source\uCGUI\JPEG\jconfig.h
+.\output\jdsample.o: .\Source\uCGUI\Core\GUI.h
+.\output\jdsample.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\jdsample.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\jdsample.o: .\Source\uCGUI\Core\GUIType.h
+.\output\jdsample.o: .\Source\uCGUI\Core\LCD.h
+.\output\jdsample.o: .\Source\uCGUI\Core\GUIVersion.h
+.\output\jdsample.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\output\jdsample.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\jdsample.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\jdsample.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\output\jdsample.o: Source\uCGUI\JPEG\jpeglib.h
+.\output\jdsample.o: Source\uCGUI\JPEG\jmorecfg.h
+.\output\jdsample.o: Source\uCGUI\JPEG\jpegint.h
+.\output\jdsample.o: Source\uCGUI\JPEG\jerror.h

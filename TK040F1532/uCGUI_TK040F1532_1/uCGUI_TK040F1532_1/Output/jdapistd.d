@@ -1,0 +1,17 @@
+.\output\jdapistd.o: Source\uCGUI\JPEG\jdapistd.c
+.\output\jdapistd.o: Source\uCGUI\JPEG\jinclude.h
+.\output\jdapistd.o: Source\uCGUI\JPEG\jconfig.h
+.\output\jdapistd.o: .\Source\uCGUI\Core\GUI.h
+.\output\jdapistd.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\jdapistd.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\jdapistd.o: .\Source\uCGUI\Core\GUIType.h
+.\output\jdapistd.o: .\Source\uCGUI\Core\LCD.h
+.\output\jdapistd.o: .\Source\uCGUI\Core\GUIVersion.h
+.\output\jdapistd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\output\jdapistd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\output\jdapistd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\output\jdapistd.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\output\jdapistd.o: Source\uCGUI\JPEG\jpeglib.h
+.\output\jdapistd.o: Source\uCGUI\JPEG\jmorecfg.h
+.\output\jdapistd.o: Source\uCGUI\JPEG\jpegint.h
+.\output\jdapistd.o: Source\uCGUI\JPEG\jerror.h

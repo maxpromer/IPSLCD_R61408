@@ -1,0 +1,11 @@
+.\output\progbar_createindirect.o: Source\uCGUI\Widget\PROGBAR_CreateIndirect.c
+.\output\progbar_createindirect.o: .\Source\uCGUI\Core\GUI.h
+.\output\progbar_createindirect.o: .\Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\progbar_createindirect.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\progbar_createindirect.o: .\Source\uCGUI\Core\GUIType.h
+.\output\progbar_createindirect.o: .\Source\uCGUI\Core\LCD.h
+.\output\progbar_createindirect.o: .\Source\uCGUI\Core\GUIVersion.h
+.\output\progbar_createindirect.o: Source\uCGUI\Widget\PROGBAR.h
+.\output\progbar_createindirect.o: .\Source\uCGUI\WM\WM.h
+.\output\progbar_createindirect.o: .\Source\uCGUI\WM\WM_GUI.h
+.\output\progbar_createindirect.o: Source\uCGUI\Widget\DIALOG_Intern.h

@@ -1,0 +1,17 @@
+.\output\lcdaa.o: Source\uCGUI\Core\LCDAA.c
+.\output\lcdaa.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\output\lcdaa.o: Source\uCGUI\Core\LCD.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\lcdaa.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUI_Private.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUI_Protected.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUI.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUIType.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUIVersion.h
+.\output\lcdaa.o: Source\uCGUI\Core\LCD_Protected.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUIDebug.h
+.\output\lcdaa.o: Source\uCGUI\Core\GUI_X.h
+.\output\lcdaa.o: .\Source\uCGUI\WM\WM_GUI.h
+.\output\lcdaa.o: Source\uCGUI\Core\LCD_Private.h
+.\output\lcdaa.o: Source\uCGUI\Core\LCD_ConfDefaults.h
+.\output\lcdaa.o: .\Source\uCGUI\Config\LCDConf.h

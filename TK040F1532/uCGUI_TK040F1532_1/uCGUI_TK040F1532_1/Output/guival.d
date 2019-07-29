@@ -1,0 +1,13 @@
+.\output\guival.o: Source\uCGUI\Core\GUIVal.c
+.\output\guival.o: Source\uCGUI\Core\GUI_Protected.h
+.\output\guival.o: Source\uCGUI\Core\GUI.h
+.\output\guival.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\guival.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\guival.o: Source\uCGUI\Core\GUIType.h
+.\output\guival.o: Source\uCGUI\Core\LCD.h
+.\output\guival.o: Source\uCGUI\Core\GUIVersion.h
+.\output\guival.o: Source\uCGUI\Core\LCD_Protected.h
+.\output\guival.o: Source\uCGUI\Core\GUIDebug.h
+.\output\guival.o: Source\uCGUI\Core\GUI_X.h
+.\output\guival.o: .\Source\uCGUI\WM\WM_GUI.h
+.\output\guival.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

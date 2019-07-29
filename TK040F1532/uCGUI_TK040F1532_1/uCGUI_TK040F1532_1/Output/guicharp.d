@@ -1,0 +1,17 @@
+.\output\guicharp.o: Source\uCGUI\Core\GUICharP.c
+.\output\guicharp.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\output\guicharp.o: Source\uCGUI\Core\GUI_Private.h
+.\output\guicharp.o: Source\uCGUI\Core\GUI_Protected.h
+.\output\guicharp.o: Source\uCGUI\Core\GUI.h
+.\output\guicharp.o: Source\uCGUI\Core\GUI_ConfDefaults.h
+.\output\guicharp.o: .\Source\uCGUI\Config\GUIConf.h
+.\output\guicharp.o: Source\uCGUI\Core\GUIType.h
+.\output\guicharp.o: Source\uCGUI\Core\LCD.h
+.\output\guicharp.o: Source\uCGUI\Core\GUIVersion.h
+.\output\guicharp.o: Source\uCGUI\Core\LCD_Protected.h
+.\output\guicharp.o: Source\uCGUI\Core\GUIDebug.h
+.\output\guicharp.o: Source\uCGUI\Core\GUI_X.h
+.\output\guicharp.o: .\Source\uCGUI\WM\WM_GUI.h
+.\output\guicharp.o: Source\uCGUI\Core\LCD_Private.h
+.\output\guicharp.o: Source\uCGUI\Core\LCD_ConfDefaults.h
+.\output\guicharp.o: .\Source\uCGUI\Config\LCDConf.h

@@ -117,6 +117,7 @@ void LCD_SetWindow(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
 
 void LCD_Initial() {
   // Config I/O
+  /*
   pinMode(16, OUTPUT); // DATA 0
   pinMode(17, OUTPUT); // DATA 1
   pinMode(18, OUTPUT); // DATA 2
@@ -133,11 +134,39 @@ void LCD_Initial() {
   pinMode(LCD_RESET, OUTPUT); // RESET
   digitalWrite(LCD_RESET, 0);
 #endif
+  */
 
   // digitalWrite(LCD_CS, 0);
-  digitalWrite(LCD_RS, 0);
-  digitalWrite(LCD_WR, 1);
+  // digitalWrite(LCD_RS, 0);
+  // digitalWrite(LCD_WR, 1);
   // digitalWrite(LCD_RD, 1);
+
+  // Data bus
+  fpioa_set_function(16, FUNC_GPIOHS0);
+  fpioa_set_function(17, FUNC_GPIOHS1);
+  fpioa_set_function(18, FUNC_GPIOHS2);
+  fpioa_set_function(19, FUNC_GPIOHS3);
+  fpioa_set_function(20, FUNC_GPIOHS4);
+  fpioa_set_function(21, FUNC_GPIOHS5);
+  fpioa_set_function(22, FUNC_GPIOHS6);
+  fpioa_set_function(23, FUNC_GPIOHS7);
+  gpiohs_set_drive_mode(0, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(1, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(2, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(3, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(4, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(5, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(6, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(7, GPIO_DM_OUTPUT);
+
+  // Control bus
+  fpioa_set_function(24, FUNC_GPIOHS8);
+  fpioa_set_function(25, FUNC_GPIOHS9);
+  gpiohs_set_drive_mode(8, GPIO_DM_OUTPUT);
+  gpiohs_set_drive_mode(9, GPIO_DM_OUTPUT);
+
+  SET_LCD_WR_ACTIVE();
+  SET_LCD_RS_COMMAND();
   
 #ifdef LCD_RESET
   SET_LCD_RESET();

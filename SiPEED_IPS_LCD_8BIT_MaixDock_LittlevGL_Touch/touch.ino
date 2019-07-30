@@ -12,8 +12,9 @@ int touch_read(uint16_t *cx, uint16_t *cy) {
     Serial.println("Write error !");
     return 0;
   }
-  
-  if (Wire.requestFrom(FT5216_ADDR, 5, true) != 0) {
+
+  uint8_t count = Wire.requestFrom(FT5216_ADDR, 5);
+  if (count != 5) {
     Serial.println("Read error !");
     return 0;
   }

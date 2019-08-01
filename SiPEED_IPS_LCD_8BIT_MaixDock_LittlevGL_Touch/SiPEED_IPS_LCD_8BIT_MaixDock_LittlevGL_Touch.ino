@@ -1,4 +1,4 @@
-#include <lvgl.h>
+   #include <lvgl.h>
 #include <Ticker.h>
 #include <Wire.h>
 
@@ -26,6 +26,8 @@
  *   RD <-> 3V3
  *   CS <-> GND
  *   RESET <-> RESET
+ *   SDA <-> 31
+ *   SCL <-> 30
  */
 
 #ifdef LCD_RESET

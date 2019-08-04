@@ -2,6 +2,7 @@
 #include "fpioa.h"
 #include "./kendryte-standalone-sdk/lib/drivers/include/spi.h"
 
+/*
 // Pin Control
 #define SSD1963_RS     38    // Data or Command
 #define SSD1963_WR     39    // Write
@@ -21,13 +22,12 @@
 #define SET_LCD_RS(a) digitalWrite(SSD1963_RS, a)
 #define SET_LCD_WR(a) digitalWrite(SSD1963_WR, a)
 
-/*
 #define SET_LCD_WR_ACTIVE() *gpiohs->output_val.u32 |= (1<<17);
 #define SET_LCD_WR_NON_ACTIVE() *gpiohs->output_val.u32 &= ~(1<<17);
 */
 
-#define SET_LCD_RS_DATA() *gpiohs->output_val.u32 |= (1<<(SSD1963_RS-16)); // IO_16 = GPIOHS0
-#define SET_LCD_RS_COMMAND() *gpiohs->output_val.u32 &= ~(1<<(SSD1963_RS-16));
+#define SET_LCD_RS_DATA() *gpiohs->output_val.u32 |= (1<<9); // IO_16 = GPIOHS0
+#define SET_LCD_RS_COMMAND() *gpiohs->output_val.u32 &= ~(1<<9);
 
 // #define SET_LCD_DATA(a) *gpiohs->output_val.u32=(*gpiohs->output_val.u32&0xFFFFFF00)|(uint32_t)(a)
 
@@ -50,7 +50,7 @@ void write_command(uint8_t c) {
     SET_LCD_DATA(c);
     SET_LCD_WRITE();
   */
-  spi_init(SSD1963_SPI_CH, SPI_WORK_MODE_2, SPI_FF_OCTAL, 8, 0);
+  spi_init(SSD1963_SPI_CH, SPI_WORK_MODE_3, SPI_FF_OCTAL, 8, 0);
   spi_init_non_standard(SPI_DEVICE_0, 8, 0, 0, SPI_AITM_AS_FRAME_FORMAT);
 
   spi_set_clk_rate(SSD1963_SPI_CH, 1E3);
@@ -67,7 +67,7 @@ void Write_Data_Register(uint8_t d) {
     SET_LCD_DATA(d);
     SET_LCD_WRITE();
   */
-  spi_init(SSD1963_SPI_CH, SPI_WORK_MODE_2, SPI_FF_OCTAL, 8, 0);
+  spi_init(SSD1963_SPI_CH, SPI_WORK_MODE_3, SPI_FF_OCTAL, 8, 0);
   spi_init_non_standard(SPI_DEVICE_0, 8, 0, 0, SPI_AITM_AS_FRAME_FORMAT);
   
   spi_set_clk_rate(SSD1963_SPI_CH, 1E3);
@@ -85,17 +85,16 @@ void Write_Data_Color(uint32_t d) {
   dataBuffer[0] = (d >> 8) & 0xFF;
   dataBuffer[1] = d & 0xFF;
 
-  spi_init(SSD1963_SPI_CH, SPI_WORK_MODE_2, SPI_FF_OCTAL, 8, 0);
+  spi_init(SSD1963_SPI_CH, SPI_WORK_MODE_3, SPI_FF_OCTAL, 8, 0);
   spi_init_non_standard(SPI_DEVICE_0, 8, 0, 0, SPI_AITM_AS_FRAME_FORMAT);
 
-  spi_set_clk_rate(SSD1963_SPI_CH, 20E6);
+  spi_set_clk_rate(SSD1963_SPI_CH, 1E6);
   
   spi_send_data_normal_dma(SSD1963_DMA_CH, SSD1963_SPI_CH, SPI_CHIP_SELECT_0, dataBuffer, 2, SPI_TRANS_CHAR);
 
   dmac_wait_done(SSD1963_DMA_CH);
 }
 
-/*
 void LCD_clear(uint32_t i) {
   LCD_SetPos(0, LCD_WIDTH - 1, 0, LCD_HEIGHT - 1);
   for (int h = 0; h < LCD_HEIGHT; h++) {
@@ -104,12 +103,13 @@ void LCD_clear(uint32_t i) {
     }
   }
 }
-*/
 
-uint8_t colorBuffer[LCD_WIDTH * LCD_HEIGHT * 2];
+/*
+#define BUFFER_CUT 20
+#define BUFFER_SIZE (((LCD_WIDTH * LCD_HEIGHT) / BUFFER_CUT) * 2)
+uint8_t colorBuffer[BUFFER_SIZE];
 void LCD_clear(uint32_t d) {
-  uint8_t inx = 0;
-  for (uint32_t x=0;x<(LCD_WIDTH * LCD_HEIGHT);x++) {
+  for (uint32_t inx=0;inx<BUFFER_SIZE;) {
     colorBuffer[inx++] = (d >> 8) & 0xFF;
     colorBuffer[inx++] = d & 0xFF;
   }
@@ -123,12 +123,13 @@ void LCD_clear(uint32_t d) {
   spi_init_non_standard(SPI_DEVICE_0, 8, 0, 0, SPI_AITM_AS_FRAME_FORMAT);
 
   spi_set_clk_rate(SSD1963_SPI_CH, 1E6);
-  
-  spi_send_data_normal_dma(SSD1963_DMA_CH, SSD1963_SPI_CH, SPI_CHIP_SELECT_0, colorBuffer, (LCD_WIDTH * LCD_HEIGHT * 2), SPI_TRANS_CHAR);
 
+  for (int i=0;i<BUFFER_CUT;i++) {
+    spi_send_data_normal_dma(SSD1963_DMA_CH, SSD1963_SPI_CH, SPI_CHIP_SELECT_0, colorBuffer, BUFFER_SIZE, SPI_TRANS_CHAR);
+  }
   dmac_wait_done(SSD1963_DMA_CH);
 }
-
+*/
 /*
   void LCD_clear(uint16_t i) {
   LCD_SetPos(0, LCD_WIDTH - 1, 0, LCD_HEIGHT - 1);
@@ -163,12 +164,24 @@ void LCD_SetPos(uint16_t xs, uint16_t xe, uint16_t ys, uint16_t ye) {
 }
 
 
-void SSD1963_Initial() {
-  SET_LCD_RESET();
+void LCD_Initial() {
+  // SET_LCD_RESET();
   delay(1);
 
-  fpioa_set_function(SSD1963_CS, (fpioa_function_t)FUNC_SPI0_SS0);
-  fpioa_set_function(SSD1963_WR, (fpioa_function_t)FUNC_SPI0_SCLK);
+  fpioa_set_function(16, FUNC_SPI0_D0);
+  fpioa_set_function(17, FUNC_SPI0_D1);
+  fpioa_set_function(18, FUNC_SPI0_D2);
+  fpioa_set_function(19, FUNC_SPI0_D3);
+  fpioa_set_function(20, FUNC_SPI0_D4);
+  fpioa_set_function(21, FUNC_SPI0_D5);
+  fpioa_set_function(22, FUNC_SPI0_D6);
+  fpioa_set_function(23, FUNC_SPI0_D7);
+
+  fpioa_set_function(25, FUNC_GPIOHS9);
+  gpiohs_set_drive_mode(9, GPIO_DM_OUTPUT);
+
+  fpioa_set_function(26, FUNC_SPI0_SS0);
+  fpioa_set_function(24, FUNC_SPI0_SCLK);
   sysctl_set_spi0_dvp_data(1);
 
   dmac_init();
@@ -486,7 +499,7 @@ void SSD1963_Initial() {
 
 
 void setup() {
-
+  /*
   // LCD
   pinMode(SSD1963_RS, OUTPUT); // RS
   //pinMode(SSD1963_WR, OUTPUT); // WR
@@ -499,8 +512,9 @@ void setup() {
   digitalWrite(SSD1963_RS, 0);
   //digitalWrite(SSD1963_WR, 1);
   // digitalWrite(SSD1963_RD, 1);
-
-  SSD1963_Initial();
+  */
+  
+  LCD_Initial();
 }
 
 void loop() {
